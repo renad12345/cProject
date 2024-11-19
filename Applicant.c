@@ -80,7 +80,7 @@ void addApplicant(){
       }
    }
    fclose(file);
-}
+}//addApplicant
     
     
 
