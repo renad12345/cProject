@@ -1,0 +1,16 @@
+The input applicants list is: 
+id		 Name		Education    	Experience	 Major	 	GPA 	State 
+
+1		Fay 		BSc		1		CSC		4.5	OWL	 
+
+2		Norah 		BSc		2		Math		5.0	OWL	 
+
+3		Sarah 		MSc		1		Eng 		5.0	OWL	 
+
+4		Ali 		BSc		0		CSC		3.4	OWL
+
+5		Ahmed 	        MSc		0		SWE		4.9	OWL	 
+
+6		Maha 		BSc		1		InS		5.0	OWL 
+
+7		Lama 		BSc		0		PYS		5.0	OWL 
