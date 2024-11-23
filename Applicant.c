@@ -163,7 +163,8 @@ void writeAssinedApplicants(){
                 arrayApplicant[i].id, arrayApplicant[i].applicant, arrayApplicant[i].education,
                 arrayApplicant[i].Experience, arrayApplicant[i].major,
                 arrayApplicant[i].Points, arrayApplicant[i].State);}
-   }                        
+   }   
+    fclose(fpo); 
 }   
 
 
