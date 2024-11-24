@@ -46,7 +46,7 @@ void addApplicant(){
    count=0;
    int i;
     
-   for(i=0;i<3;i++) //to skip the first two lines
+   for(i=0;i<3;i++) //to skip the first Three lines
       fgets(OneLine, sizeof(OneLine),file);
     
     
@@ -123,10 +123,10 @@ void writeAssinedApplicants(){
       printf("Error opening file.\n");
       return;}
    fprintf(fpo, "The input applicants List is:\n");
-   fprintf(fpo, "id\t\tName\t\tEducation\t\tExperience\t\tMajor\t\tGPA\t\tState\n");       
+   fprintf(fpo, "id\tName\t\tEducation\tExperience\tMajor\t\tGPA\t\tState\n");       
    int i;
    for (i=0; i<count ; i++){
-      fprintf(fpo, "%d\t\t%s\t\t%s\t\t\t%d\t\t\t%s\t\t%.1f\t\t%s\n",
+      fprintf(fpo, "%d\t%s\t\t%s\t\t%d\t\t%s\t\t%.1f\t\t%s\n",
                 arrayApplicant[i].id, arrayApplicant[i].applicant, arrayApplicant[i].education,
                 arrayApplicant[i].Experience, arrayApplicant[i].major,
                 arrayApplicant[i].GPA, "OWL");
@@ -134,23 +134,23 @@ void writeAssinedApplicants(){
                 
    fprintf(fpo, "----------------------------------------------------------------------------------------\n");            
    fprintf(fpo, "\nThe Candidates list is:\n");
-   fprintf(fpo, "id\t\tName\t\tEducation\t\tExperience\t\tMajor\t\tPoints\t\tState\n");
+   fprintf(fpo, "id\tName\t\tEducation\tMajor\t\tPoints\t\tState\n");
    for (int i = 0; i <count ; i++) {
       if (strcmp(arrayApplicant[i].State, "Candidate") == 0 || strcmp(arrayApplicant[i].State, "Assigned") == 0) {   
-         fprintf(fpo, "%d\t\t%s\t\t%s\t\t\t%d\t\t\t%s\t\t%.1f\t\t%s\n",
+         fprintf(fpo, "%d\t%s\t\t%s\t\t%s\t\t%.1f\t\t%s\n",
                 arrayApplicant[i].id, arrayApplicant[i].applicant, arrayApplicant[i].education,
-                arrayApplicant[i].Experience, arrayApplicant[i].major,
+                 arrayApplicant[i].major,
                 arrayApplicant[i].Points, "Candidate");}
    }
                  
    fprintf(fpo, "----------------------------------------------------------------------------------------\n");            
    fprintf(fpo, "\nAssigned Applicant is:\n");
-   fprintf(fpo, "id\t\tName\t\tEducation\t\tExperience\t\tMajor\t\tPoints\t\tState\n");
+   fprintf(fpo, "id\tName\t\tEducation\tMajor\t\tPoints\t\tState\n");
    for (int i = 0; i <count ; i++) {
       if (strcmp(arrayApplicant[i].State, "Assigned") == 0) {   
-         fprintf(fpo, "%d\t\t%s\t\t%s\t\t\t%d\t\t\t%s\t\t%.1f\t\t%s\n",
+         fprintf(fpo, "%d\t%s\t\t%s\t\t%s\t\t%.1f\t\t%s\n",
                 arrayApplicant[i].id, arrayApplicant[i].applicant, arrayApplicant[i].education,
-                arrayApplicant[i].Experience, arrayApplicant[i].major,
+                arrayApplicant[i].major,
                 arrayApplicant[i].Points, arrayApplicant[i].State);}
    }   
    fclose(fpo); 
