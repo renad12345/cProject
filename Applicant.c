@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 void addApplicant();
 void calculatePoints();
 void setApplicantState (char* MajorList );
@@ -96,7 +97,7 @@ void calculatePoints(){
 void setApplicantState (char* MajorList){
 
    for(int i = 0; i<count; i++){
-  
+   
       if(strstr(MajorList, arrayApplicant[i].major) !=NULL )
          strcpy(arrayApplicant[i].State, "Candidate");
    
@@ -109,9 +110,9 @@ void setApplicantState (char* MajorList){
          if(arrayApplicant[i].Points>highest){
             highest = arrayApplicant[i].Points;
             index = i;
-            }
+         }
    }
-               strcpy(arrayApplicant[index].State, "Assigned");
+   strcpy(arrayApplicant[index].State, "Assigned");
 
    
 }
@@ -125,23 +126,11 @@ void writeAssinedApplicants(){
    fprintf(fpo, "id\t\tName\t\tEducation\t\tExperience\t\tMajor\t\tGPA\t\tState\n");       
    int i;
    for (i=0; i<count ; i++){
-   fprintf(fpo, "%d\t\t%s\t\t%s\t\t\t%d\t\t\t%s\t\t%.1f\t\t%s\n",
+      fprintf(fpo, "%d\t\t%s\t\t%s\t\t\t%d\t\t\t%s\t\t%.1f\t\t%s\n",
                 arrayApplicant[i].id, arrayApplicant[i].applicant, arrayApplicant[i].education,
                 arrayApplicant[i].Experience, arrayApplicant[i].major,
                 arrayApplicant[i].GPA, "OWL");
-                }
-
-    /*  if (strcmp(arrayApplicant[i].State, "Assigned") == 0){
-         fprintf(fpo, "%d\t\t%s\t\t%s\t\t\t%d\t\t\t%s\t\t%.1f\t\t%s\n",
-                arrayApplicant[i].id, arrayApplicant[i].applicant, arrayApplicant[i].education,
-                arrayApplicant[i].Experience, arrayApplicant[i].major,
-                arrayApplicant[i].GPA, arrayApplicant[i].State);}
-      else{             
-         fprintf(fpo, "%d\t\t%s\t\t%s\t\t\t%d\t\t\t%s\t\t%.1f\t\t%s\n",
-                arrayApplicant[i].id, arrayApplicant[i].applicant, arrayApplicant[i].education,
-                arrayApplicant[i].Experience, arrayApplicant[i].major,
-                arrayApplicant[i].GPA, "OWL");}
-   }  */               
+   }
                 
    fprintf(fpo, "----------------------------------------------------------------------------------------\n");            
    fprintf(fpo, "\nThe Candidates list is:\n");
@@ -164,7 +153,7 @@ void writeAssinedApplicants(){
                 arrayApplicant[i].Experience, arrayApplicant[i].major,
                 arrayApplicant[i].Points, arrayApplicant[i].State);}
    }   
-    fclose(fpo); 
+   fclose(fpo); 
 }   
 
 
@@ -172,26 +161,26 @@ void writeAssinedApplicants(){
 void printList(){
 
    printf("\nThe input applicants list is:\n");
-   printf("ID\t\t\tApplicant\t\tEducation\t\tExperience\t\tMajor\t\tGPA\t\tState\n");
+   printf("ID\t\tApplicant\tEducation\tExperience\t\tMajor\t\tGPA\t\tState\n");
    for (int i = 0; i < count; i++)
-      printf("%d\t\t\t%s\t\t\t\t%s\t\t\t\t%d\t\t\t\t\t%s\t\t%.2f\t\t%s\n",arrayApplicant[i].id,arrayApplicant[i].applicant,arrayApplicant[i].education,arrayApplicant[i].Experience,arrayApplicant[i].major,arrayApplicant[i].GPA,"OWL");
+      printf("%d\t\t%s\t\t\t%s\t\t\t%d\t\t\t\t\t%s\t\t%.2f\t\t%s\n",arrayApplicant[i].id,arrayApplicant[i].applicant,arrayApplicant[i].education,arrayApplicant[i].Experience,arrayApplicant[i].major,arrayApplicant[i].GPA,"OWL");
    printf("----------------------------------------------\n");
 
 
    printf("\nThe Candidates list is:\n");
-   printf("ID\t\tApplicant\t\tEducation\t\tMajor\t\t\tpoints\t\t\tState\n");
+   printf("ID\t\tApplicant\tEducation\tMajor\t\tpoints\t\tState\n");
    for (int i = 0; i < count; i++) {
       if(strcmp(arrayApplicant[i].State,"Candidate")==0|| strcmp(arrayApplicant[i].State,"Assigned")==0)
-         printf("%d\t\t%s\t\t\t\t%s\t\t\t\t%s\t\t\t%.2f\t\t\t\t%s\n",arrayApplicant[i].id,arrayApplicant[i].applicant,arrayApplicant[i].education,arrayApplicant[i].major,arrayApplicant[i].Points,"Candidate");
+         printf("%d\t\t%s\t\t\t%s\t\t\t%s\t\t%.2f\t\t\t%s\n",arrayApplicant[i].id,arrayApplicant[i].applicant,arrayApplicant[i].education,arrayApplicant[i].major,arrayApplicant[i].Points,"Candidate");
    }//for
 
    printf("----------------------------------------------\n");
    printf("The Assigned Applicant is :\n");
    for (int i= 0; i < count; i++) {
       if(strcmp(arrayApplicant[i].State,"Assigned")==0){
-         printf("%d\t\t%s\t\t\t\t%s\t\t\t\t%s\t\t\t%.2f\t\t\t\t%s\n",arrayApplicant[i].id,arrayApplicant[i].applicant,arrayApplicant[i].education,arrayApplicant[i].major,arrayApplicant[i].Points,arrayApplicant[i].State);
-       break;
-       }
+         printf("%d\t\t%s\t\t\t%s\t\t\t%s\t\t%.2f\t\t\t%s\n",arrayApplicant[i].id,arrayApplicant[i].applicant,arrayApplicant[i].education,arrayApplicant[i].major,arrayApplicant[i].Points,arrayApplicant[i].State);
+         break;
+      }
    }//for
 
 
