@@ -169,31 +169,49 @@ void writeAssinedApplicants(){
 
 
 
-void printList(){
+void printList() {
+    printf("\nThe input applicants list is:\n");
+    printf("ID   %-15s %-15s %-10s %-15s %-5s %-10s\n", "Name", "Education", "Experience", "Major", "GPA", "State");
+    printf("-------------------------------------------------------------------------------------------\n");
+    for (int i = 0; i < count; i++) {
+        printf("%-4d %-15s %-15s %-10d %-15s %-5.2f %-10s\n",
+               list[i].id,
+               list[i].applicant,
+               list[i].education,
+               list[i].Experience,
+               list[i].major,
+               list[i].GPA,
+               "OWL");
+    }
+    printf("-------------------------------------------------------------------------------------------\n");
 
-   printf("\nThe input applicants list is:\n");
-   printf("ID\t\t\tName\t\tEducation\t\tExperience\t\tMajor\t\tGPA\t\tState\n");
-   for (int i = 0; i < count; i++)
-      printf("%d\t\t\t%s\t\t\t\t%s\t\t\t\t%d\t\t\t\t\t%s\t\t%.2f\t\t%s\n",list[i].id,list[i].applicant,list[i].education,list[i].Experience,list[i].major,list[i].GPA,"OWL");
-   printf("----------------------------------------------\n");
+    printf("\nThe Candidates list is:\n");
+    printf("ID   %-15s %-15s %-15s %-10s %-10s\n", "Applicant", "Education", "Major", "Points", "State");
+    printf("-------------------------------------------------------------------------------------------\n");
+    for (int i = 0; i < count; i++) {
+        if (strcmp(list[i].State, "Candidate") == 0 || strcmp(list[i].State, "Assigned") == 0) {
+            printf("%-4d %-15s %-15s %-15s %-10.2f %-10s\n",
+                   list[i].id,
+                   list[i].applicant,
+                   list[i].education,
+                   list[i].major,
+                   list[i].Points,
+                   "Candidate");
+        }
+    }
 
-
-   printf("\nThe Candidates list is:\n");
-   printf("ID\t\tApplicant\t\tEducation\t\tMajor\t\t\tpoints\t\t\tState\n");
-   for (int i = 0; i < count; i++) {
-      if(strcmp(list[i].State,"Candidate")==0|| strcmp(list[i].State,"Assigned")==0)
-         printf("%d\t\t%s\t\t\t\t%s\t\t\t\t%s\t\t\t%.2f\t\t\t\t%s\n",list[i].id,list[i].applicant,list[i].education,list[i].major,list[i].Points,"Candidate");
-   }//for
-
-   printf("----------------------------------------------\n");
-   printf("Assigned Applicant is :\n");
-   for (int i= 0; i < count; i++) {
-      if(strcmp(list[i].State,"Assigned")==0){
-         printf("%d\t\t%s\t\t\t\t%s\t\t\t\t%s\t\t\t%.2f\t\t\t\t%s\n",list[i].id,list[i].applicant,list[i].education,list[i].major,list[i].Points,list[i].State);
-       break;
-       }
-   }//for
-
-
-
-}//printMethod
+    printf("-------------------------------------------------------------------------------------------\n");
+    printf("Assigned Applicant is:\n");
+    for (int i = 0; i < count; i++) {
+        if (strcmp(list[i].State, "Assigned") == 0) {
+            printf("%-4d %-15s %-15s %-15s %-10.2f %-10s\n",
+                   list[i].id,
+                   list[i].applicant,
+                   list[i].education,
+                   list[i].major,
+                   list[i].Points,
+                   list[i].State);
+            break;
+        }
+    }
+}
